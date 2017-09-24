@@ -10,6 +10,8 @@ const logger = require('koa-logger')
 const restc = require('restc')
 const index = require('./routes/index')
 const users = require('./routes/users')
+const upload = require('./routes/upload')
+const error = require('./routes/error')
 // error handler
 onError(app)
 
@@ -19,7 +21,6 @@ app.use(bodyParser({
 }))
 app.use(json())
 app.use(logger())
-app.use(restc.koa2())
 // defined the static dir
 app.use(require('koa-static')(__dirname + '/public'))
 
@@ -38,4 +39,7 @@ app.use(async (ctx, next) => {
 // routes
 app.use(index.routes(), index.allowedMethods())
 app.use(users.routes(), users.allowedMethods())
+app.use(upload.routes(), upload.allowedMethods())
+app.use(restc.koa2())
+app.use(error.routes(), error.allowedMethods())
 module.exports = app

@@ -37,7 +37,7 @@ function uploadFile(ctx, options) {
   // 获取类型
   let fileType = options.fileType || 'common'
   let filePath = path.join(options.path, fileType)
-  let mkdirRes = mkdirSync(filePath)
+  let mkdirResult = mkdirSync(filePath)
   return new Promise((resolve, reject) => {
     console.log('uploading.......')
     let result = {
@@ -57,6 +57,9 @@ function uploadFile(ctx, options) {
       file.on('end', function () {
         result.success = true
         result.message = 'uploading file successful'
+        result.data = {
+          pictureUrl: `//${ctx.host}/image/${fileType}/${fileName}`
+        }
         console.log('uploading file successful')
         resolve(result)
       })
@@ -69,6 +72,7 @@ function uploadFile(ctx, options) {
     // analysis the end event
     busboy.on('finish', function () {
       console.log('upload file finish')
+      resolve(result)
     })
     // analysis the error event
     busboy.on('error', function (err) {
