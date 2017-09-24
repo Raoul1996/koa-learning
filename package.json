@@ -9,6 +9,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "busboy": "^0.2.14",
     "debug": "^2.6.3",
     "ejs": "^2.5.7",
     "koa": "^2.2.0",
@@ -20,8 +21,10 @@
     "koa-router": "^7.1.1",
     "koa-static": "^3.0.0",
     "koa-views": "^5.2.1",
+    "path": "^0.12.7",
     "pug": "^2.0.0-rc.1",
-    "restc": "^0.2.2"
+    "restc": "^0.2.2",
+    "util": "^0.10.3"
   },
   "devDependencies": {
     "nodemon": "^1.8.1"
