@@ -9,6 +9,7 @@ const bodyParser = require('koa-bodyparser')
 const logger = require('koa-logger')
 const restc = require('restc')
 const index = require('./routes/index')
+const api = require('./routes/api')
 const users = require('./routes/users')
 const upload = require('./routes/upload')
 const error = require('./routes/error')
@@ -38,8 +39,10 @@ app.use(async (ctx, next) => {
 
 // routes
 app.use(index.routes(), index.allowedMethods())
+app.use(api.routes(), api.allowedMethods())
 app.use(users.routes(), users.allowedMethods())
 app.use(upload.routes(), upload.allowedMethods())
 app.use(restc.koa2())
 app.use(error.routes(), error.allowedMethods())
+
 module.exports = app
