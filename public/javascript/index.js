@@ -53,7 +53,7 @@
         let percent = Math.floor(100 * loaded / total)
         options.progress(percent)
       }
-      xhr.open('post', '/api/picture/upload.json')
+      xhr.open('post', '/api/async/upload.json')
       xhr.send(formData)
     } catch (e) {
       options.fail(e)
