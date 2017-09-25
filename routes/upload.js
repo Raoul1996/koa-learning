@@ -10,8 +10,8 @@ router.get('/sync', async (ctx, next) => {
 router.post('/upload.json', async (ctx, next) => {
   {
     let result = {success: false}
-    let serverFilePath = path.join(__dirname, 'public/upload-files')
-
+    // the path is based on the route path.I want to save the file to the ../public
+    let serverFilePath = path.join(__dirname, '../public/upload-files')
     // upload file event
     result = await uploadFile(ctx, {
       fileType: 'album', // common or album
