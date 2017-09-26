@@ -3,6 +3,7 @@ const app = new Koa()
 // koa template middleware
 const views = require('koa-views')
 const path = require('path')
+const fs = require('fs')
 const json = require('koa-json')
 const onError = require('koa-onerror')
 const bodyParser = require('koa-bodyparser')
