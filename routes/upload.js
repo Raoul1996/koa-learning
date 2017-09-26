@@ -1,6 +1,4 @@
 const router = require('koa-router')()
-const path = require('path')
-const {uploadFile} = require('../utils/upload')
 router.prefix('/upload')
 router.get('/sync', async (ctx, next) => {
   await ctx.render('upload-sync', {
