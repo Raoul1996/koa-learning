@@ -11,7 +11,7 @@
   "dependencies": {
     "busboy": "^0.2.14",
     "debug": "^2.6.3",
-    "ejs": "^2.5.7",
+    "ejs": "^3.1.7",
     "koa": "^2.2.0",
     "koa-bodyparser": "^3.2.0",
     "koa-convert": "^1.2.0",
